@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3 class="title">Update Card</h3>
+
+    <form action="" class="form-container">
+
+        <label for="people-name" id="people-name">Full Name</label>
+        <input type="text" name="people-name" id="people-name" value="${people.name}">
+
+        <label for="job-title">Job Title</label>
+        <input type="text" name="job-title" id="job-title " value="${people.job}">
+
+        <label for="location">Location</label>
+        <input type="text" name="location" id="location" value="${people.location}">
+
+        <label for="wallet">Pay for hour</label>
+        <input type="text" name="wallet" id="wallet" value="${people.wallet}">
+    </form>
+
+    <section class="buttons-container">
+
+        <p><button class="button">Update Card</button></p>
+        <p><button class="button">Cancel</button></p>
+        <p><button class="button">Delete Card</button></p>
+    </section>
+    
+</body>
+</html>

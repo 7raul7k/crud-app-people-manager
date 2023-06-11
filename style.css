@@ -1,0 +1,103 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+
+}
+
+.header-container{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button{
+    display: block;
+
+    background-color: greenyellow;
+
+    font-size: 1em;
+
+    height: 70%;
+    width: 9%;
+ 
+}
+.main-container{
+    
+  
+    display: flex;
+    flex-flow: column wrap;
+
+    justify-content: center;
+    align-content: center;
+
+    border: 2px solid black;
+}
+
+.cards{
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    align-content: space-around;
+    justify-content: space-around;
+   
+    width: 99%;
+}
+
+.card-container{
+
+    display: flex;
+
+    flex-flow: row wrap;
+
+    border: 2px solid gray;
+    align-items: center;
+
+    justify-content: space-around;
+
+    align-content: space-around;
+    width: 100%;
+    height: 100%;
+
+    margin-top: 2%;
+}
+
+.card-information-container{
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+    width: 90%;
+
+    height: 40%;
+    list-style: none;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+
+    width: 20%;
+
+
+    align-content: space-around;
+}
+
+.error{
+    color: red;
+}
+
+.card-item{
+
+    width: 90%;
+    text-align: center;
+}
