@@ -14,7 +14,16 @@ function attachHomePage(){
 
         
         </div>
+        
 `;
+
+let createCard = document.querySelector(".create-card-button");
+
+createCard.addEventListener("click",()=>{
+attachNewCardPage();
+});
+
+
 
 attachCards(peoples);
 }
@@ -47,5 +56,34 @@ function createCard(people){
             </section>
     
     `;
+}
+
+function attachNewCardPage(){
+
+    let container = document.querySelector(".container");
+
+
+    container.innerHTML = `  <h3 class="title">Create Card</h3>
+    <form action="" class="form-container">
+
+        <label for="people-name" id="people-name">Full Name</label>
+        <input type="text" name="people-name" id="people-name">
+
+        <label for="job-title">Job Title</label>
+        <input type="text" name="job-title" id="job-title">
+
+        <label for="location">Location</label>
+        <input type="text" name="location" id="location">
+
+        <label for="wallet">Pay for hour</label>
+        <input type="number" name="wallet" id="wallet">
+
+    </form>
+
+    <section class="buttons-container">
+
+        <p><button class="button">Add card</button></p>
+        <p><button class="button">Cancel</button></p>
+    </section>`;
 }
 
