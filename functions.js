@@ -14,6 +14,8 @@ function attachHomePage(){
 
         
         </div>
+
+        
         
 `;
 
@@ -23,9 +25,26 @@ createCard.addEventListener("click",()=>{
 attachNewCardPage();
 });
 
-
-
 attachCards(card);
+
+
+
+let cardContainer = document.querySelector(".cards");
+
+cardContainer.addEventListener("click",(e)=>{
+    let obj = e.target;
+
+    if(obj.classList.contains("name")){
+
+        let person = card.find(function(p){
+            return p.name === obj.innerText;
+        });
+
+        attachUpdatePage(person);
+    }
+
+
+})
 }
 
 function attachCards(arr){
@@ -48,7 +67,7 @@ function createCard(people){
     <section class="card-container">
                 <img src='http://fakeimg.pl/100?font=lobster' alt='' class="card-image"/>
                <ul class="card-information-container">
-                <li class="card-item card-name">${people.name}</li>
+                <li class="card-item card-name name">${people.name}</li>
                 <li class="card-item card-job-title">${people.job} </li>
                 <li class="card-item card-location">${people.location}</li>
                 <li class="card-item wallet">${people.wallet}/hours</li>
@@ -153,6 +172,59 @@ function attachErrors(errors){
     text +="</ul";
 
     containerErrors.innerHTML = text;
+
+}
+
+function attachUpdatePage(people){
+
+   let container = document.querySelector(".container");
+   
+   container.innerHTML =`
+   <h3 class="title">Update Card</h3>
+
+   <form action="" class="form-container">
+
+       <label for="people-name" id="people-name">Full Name</label>
+       <input type="text" class="inpt-name" name="people-name" id="people-name" value="${people.name}">
+
+       <label for="job-title">Job Title</label>
+       <input type="text" class="inpt-job" name="job-title" id="job-title " value="${people.job}">
+
+       <label for="location">Location</label>
+       <input type="text" class="inpt-location" name="location" id="location" value="${people.location}">
+
+       <label for="wallet">Pay for hour</label>
+       <input type="text" name="wallet" class="inpt-wallet" id="wallet" value="${people.wallet}">
+   </form>
+
+   <section class="buttons-container">
+
+       <p><button class="button update-card">Update Card</button></p>
+       <p><button class="button cancel">Cancel</button></p>
+       <p><button class="button delete-card">Delete Card</button></p>
+   </section>
+   `;
+
+   let update = document.querySelector(".update-card");
+
+   let inptName = document.querySelector(".inpt-name");
+
+    let inptJob = document.querySelector(".inpt-job");
+
+    let inptLocation = document.querySelector(".inpt-location");
+
+    let inptWallet = document.querySelector(".inpt-wallet");
+   update.addEventListener("click",()=>{
+
+    let updateCard = {id:people.id,name:inptName.value,job:inptJob.value,location:inptLocation.value,wallet:inptWallet.value}
+
+    card[people.id - 1] = updateCard;
+
+    attachHomePage();
+
+    
+
+   })
 
 }
 
