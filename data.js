@@ -1,4 +1,4 @@
-let peoples = [
+let card = [
      {
       name: "Wyndham Alenichev",
       job: "Professor",

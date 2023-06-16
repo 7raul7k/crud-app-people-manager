@@ -25,7 +25,7 @@ attachNewCardPage();
 
 
 
-attachCards(peoples);
+attachCards(card);
 }
 
 function attachCards(arr){
@@ -64,26 +64,95 @@ function attachNewCardPage(){
 
 
     container.innerHTML = `  <h3 class="title">Create Card</h3>
+
+    <div class='container-errors'>
+		</div>
     <form action="" class="form-container">
 
         <label for="people-name" id="people-name">Full Name</label>
-        <input type="text" name="people-name" id="people-name">
+        <input type="text" class="inpt-name" name="people-name" id="people-name">
 
         <label for="job-title">Job Title</label>
-        <input type="text" name="job-title" id="job-title">
+        <input type="text" class="inpt-job"name="job-title" id="job-title">
 
         <label for="location">Location</label>
-        <input type="text" name="location" id="location">
+        <input type="text" class="inpt-location" name="location" id="location">
 
         <label for="wallet">Pay for hour</label>
-        <input type="number" name="wallet" id="wallet">
+        <input type="text" class="inpt-wallet" name="wallet" id="wallet">
 
     </form>
 
-    <section class="buttons-container">
+   
 
-        <p><button class="button">Add card</button></p>
-        <p><button class="button">Cancel</button></p>
-    </section>`;
+        <p>
+             <a class="button add-card">Add card</a>
+        </p>
+        <p>
+             <a class="button cancel">Cancel</a>
+        </p>
+   `;
+
+   let addCard = document.querySelector(".add-card");
+
+    let inptName = document.querySelector(".inpt-name");
+
+    let inptJob = document.querySelector(".inpt-job");
+
+    let inptLocation = document.querySelector(".inpt-location");
+
+    let inptWallet = document.querySelector(".inpt-wallet");
+
+    let cancel = document.querySelector(".cancel");
+
+
+  
+
+    cancel.addEventListener("click",()=>{
+       attachHomePage();
+    });
+   
+
+    addCard.addEventListener("click",()=>{
+     
+        errors =[];
+        let person =  {
+            name: inptName.value,
+            job: inptJob.value,
+            location: inptLocation.value,
+            wallet:inptWallet.value
+          };
+
+
+          if(inptName.value!== "" && inptJob.value!==""&&inptLocation.value!==""&&inptWallet.value!=""){
+
+            card.push(person);
+            attachHomePage();
+          }else{
+          for(const property in person){
+
+            if(person[property] === ""){
+                errors.push(`${property}: missing`);
+            }
+          }
+          attachErrors(errors);
+        }
+
+    
+    });
+}
+
+function attachErrors(errors){
+
+    let containerErrors = document.querySelector(".container-errors");
+
+    let text =`<ul class="error"`
+    errors.forEach(err=>{
+        text +=`<li>${err}</li>`;
+    });
+    text +="</ul";
+
+    containerErrors.innerHTML = text;
+
 }
 
