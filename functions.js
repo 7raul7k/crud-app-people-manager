@@ -45,6 +45,11 @@ cardContainer.addEventListener("click",(e)=>{
 
 
 })
+
+let cancel = document.querySelector(".cancel");
+
+
+
 }
 
 function attachCards(arr){
@@ -224,7 +229,34 @@ function attachUpdatePage(people){
 
     
 
+   });
+
+  
+   let cancel = document.querySelector(".cancel");
+   cancel.addEventListener("click",()=>{
+    attachHomePage();
+})
+
+    let deleteCard = document.querySelector(".delete-button");
+
+    deleteCard.addEventListener("click",()=>{
+        card = deleteCard(people.id);
+
+        attachHomePage();
+    })
+
+}
+
+function deleteCard(id){
+   let arr =[]
+
+   card.forEach((people)=>{
+
+    if(people.id !== id){
+        arr.push(people);
+    }
    })
 
+   return arr;
 }
 
