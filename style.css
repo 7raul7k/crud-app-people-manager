@@ -24,6 +24,8 @@ body{
 
     height: 70%;
     width: 9%;
+
+    cursor: pointer;
  
 }
 .main-container{
@@ -100,4 +102,8 @@ body{
 
     width: 90%;
     text-align: center;
+}
+
+.card-name{
+    cursor: pointer;
 }
